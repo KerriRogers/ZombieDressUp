@@ -1,0 +1,147 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Draggable Droppable Zombie Dolls</title>
+  
+  <!--links include jquery ui for effects-->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  
+  <style>
+  h1 {text-align: center;}
+  p {text-align: center;}
+  
+  #dolls {width: 100%; height: 277px;}
+  #drop { margin-left: 50px;}
+  #dragbrain { width: 187px; height: 10px;  float: left;  border: none; margin-left: 0px;}
+  #dragpants { width: 127px; height: 10px;  float: left;  border: none; margin-left: 0px;}
+  #dragshirt { width: 187px; height: 10px;  float: left;  border: none; margin-left: 0px;}
+  #dragtights { width: 160px; height: 10px;  float: left;  border: none; margin-left: 0px;margin-right: 0px;}
+  #dragbow{ width: 75px; height: 10px;  float: left;  border: none; margin-left: 0px; margin-right: 0px;}
+  #dragpantsshoes{ width: 100px; height: 10px;  float: left;  border: none; margin-left: 0px; margin-right: 0px;}
+  #draghair{ width: 110px; height: 10px;  float: left;  border: none; margin-left: 0px;margin-right: 0px;}
+  #dragshirtgirl { width: 75px; height: 10px;  float: left;  border: none; margin-left: 0px;margin-right: 0px;}
+  #dragpurpleshirt { width: 168px; height: 10px;  float: left;  border: none; margin-left: 0px;margin-right: 0px;}
+  #dropguy { width: 187px; height: 273px; float: left; border: none; margin-left: 320px;}
+  #dropgirl { width: 187px; height: 273px; float: left; border: none; margin-left: 20px;}
+  #droplilgirl { width: 185px; height: 273px; float: left; border: none; margin-left: 20px;}
+  </style>
+
+  <script>
+  //set up draggable and droppable objects
+  $(function() {
+    
+    $( "#dragpants" ).draggable(); 
+	$( "#dragshirt" ).draggable(); 
+	$( "#dragtights" ).draggable(); 
+    $( "#dragbrain" ).draggable(); 
+	$( "#dragbow" ).draggable();
+	$( "#dragpantsshoes" ).draggable();
+	$( "#draghair" ).draggable(); 
+	$( "#dragshirtgirl" ).draggable(); 
+	$( "#dragpurpleshirt" ).draggable(); 
+	
+	$( "#droplilgirl" ).droppable();
+    $( "#dropgirl" ).droppable();
+    $( "#dropguy" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+			}
+    });  //end of event
+	
+	
+	//after dolls dressed click
+  $("#drop").click(function () {
+      $('section').fadeOut(1500, 0);
+	  $('body').html('<h1>Zombies eat brains, you are safe!</h1>' ); 
+	 
+	 });  //end of click
+  
+  
+  }); //end of doc ready
+  </script>
+</head>
+<body>
+
+<!--area for after button clicked=-->
+<section id="replace">
+<h1>Zombie Family</h1>
+
+<p> The Zombie Family need to get ready for a night on the town! Just drag and drop their clothes on!<br /> When they are ready to go, click the drop of blood to send them out</p>
+
+<!--Dolls that are droppable -->
+<div id="dolls">
+<div id="dropguy" class="ui-widget-header">
+  <img src="guy.jpg" />
+  </div>
+
+<div id="dropgirl" class="ui-widget-header">
+  <img src="zgirl.jpg" />
+  </div>
+
+<div id="droplilgirl" class="ui-widget-header">
+  <img src="lilgirl.jpg" />
+  </div>
+  
+  <br /><br /><br />
+  <div id="drop">
+  <img src="blood.jpg"><br />Click Me!
+  </div>
+  
+ </div>
+<br /> <br />
+ 
+ <!--draggable clothes-->
+ <div id="clothes">
+     
+  <div id="dragbow" class="ui-widget-header">
+  <img src="clothes/bow.png" />
+  </div>
+ 
+ 
+<div id="dragtights" class="ui-widget-header">
+  <img src="clothes/tights.jpg" />
+  </div>
+  
+  <div id="dragpantsshoes" class="ui-widget-header">
+  <img src="clothes/pantsshoes.jpg" />
+  </div>
+  
+  <div id="draghair" class="ui-widget-header">
+  <img src="clothes/shorthair.jpg" />
+  </div>
+  
+  <div id="dragshirtgirl" class="ui-widget-header">
+  <img src="clothes/shirtgirl.jpg" />
+  </div>
+  
+  <div id="dragpurpleshirt" class="ui-widget-header">
+  <img src="clothes/purpleshirt.jpg" />
+  </div>
+  
+  <div id="dragpants" class="ui-widget-header">
+  <img src="clothes/z_guy_pants.jpg" />
+  </div>
+  
+   <div id="dragshirt" class="ui-widget-header">
+  <img src="clothes/guyshirt.jpg" />
+  </div>
+  
+  <div id="dragbrain" class="ui-widget-header">
+  <img src="clothes/brainsGuy.jpg" />
+  </div>
+  
+  </div>
+  
+  </section>
+  
+  
+</body>
+</html>
